@@ -1,0 +1,6 @@
+int random(void){
+    float i;
+    srand(time(NULL));
+    i = rand()%100
+    return 0;
+}

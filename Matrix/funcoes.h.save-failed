@@ -1,0 +1,35 @@
+int random(void){
+    float i;
+    srand((unsigned)time(0))
+    i = rand()%100;
+    return i;
+}
+
+int salvar(int tamlina, int tamlinb, int tamcola, int tamcolb, float matriza[][100], float matrizb[][100]){
+    char caminho[40];
+    int i, j, k;
+    FILE *arq;
+
+    printf("Digite o caminho do arquivo (Máx. 40 caracteres: \n");
+    scanf("%s", &caminho);
+
+    arq = fopen(caminho, "w");
+
+    fprintf(arq, "Matriz A\n");
+    for(i = 0; i < tamlina; i++){
+        for(j = 0; j< tamcola; j++){
+            fprintf(arq, "%6.2f ", matriza[i][j]);
+        }
+        fprintf(arq, "\n");
+    }
+
+    fprintf(arq, "Matriz B\n");
+    for(i = 0; i < tamlinb; i++){
+        for(j = 0; j< tamcolb; j++){
+            fprintf(arq, "%6.2f ", matrizb[i][j]);
+        }
+        fprintf(arq, "\n");
+    }
+    printf("RESPOSTA DO SISTEMA: Suas matrizes foram salvas com sucesso em %s.\n", caminho);
+    fclose(arq);
+}

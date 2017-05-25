@@ -1,0 +1,16 @@
+# depslib dependency file v1.0
+1495647937 source:c:\users\mateus\google drive\projeto manipulação de matrizes\matrix\matrix.c
+	<stdio.h>
+	<string.h>
+	<time.h>
+	<locale.h>
+	<stdlib.h>
+	"funcoes.h"
+	"menu.h"
+
+1495637657 c:\users\mateus\google drive\projeto manipulação de matrizes\matrix\menu.h
+
+1495207746 c:\users\mateus\google drive\projeto manipulação de matrizes\matrix\aleatorio.h
+
+1495648942 c:\users\mateus\google drive\projeto manipulação de matrizes\matrix\funcoes.h
+
