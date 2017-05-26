@@ -1,7 +1,6 @@
-int random(void){
+int random(float inferior, float superior){
     float i;
-    srand((unsigned)time(0));
-    i = rand()%100;
+    i = rand()%100/99.0*(superior-inferior)+inferior;
     return i;
 }
 
