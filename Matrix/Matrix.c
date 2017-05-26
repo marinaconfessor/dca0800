@@ -11,12 +11,13 @@
 int main (void){
 
     setlocale(LC_ALL, "portuguese");    //SERVE PODER USAR ACENTOS NOS PRINTF
-
-    float matriza[100][100], matrizb[100][100], matrizc[100][100];
+    srand((unsigned)time(0));   //TEM QUE SER AQUI PRA N FICAR REPETINDO 
+    
+    float matriza[100][100], matrizb[100][100], matrizc[100][100], inferior, superior;
     int tamlina=10, tamlinb=10, tamlinc=10, tamcola=10, tamcolb=10, tamcolc=10;
     int alternativa, i, j, lin, col;
 
-    //CRIA UM LOOP PARA N�O MATAR O PROGRAMA AO FINAL DA EXECU��O
+    //CRIA UM LOOP PARA NÃO MATAR O PROGRAMA AO FINAL DA EXECUÇÃO
     while(1){
         alternativa = menu();   //CHAMA FUNCAO MENU
 
@@ -46,7 +47,6 @@ int main (void){
             printf("Defina a quantidade de colunas de B: ");
             scanf("%d", &tamcolb);
 
-
             if((tamlinb==0) || (tamcolb==0) || (tamlinb>10) || (tamcolb>10) ){
                     //PQ NAO POSSO DEIXAR CRIAR MATRIZ COM LIN OU COL NULA OU MAIOR Q O PRE-DEFINIDO, ENTAO VOLTO AO TAMANHO PADRAO
                 printf("\nRESPOSTA DO SISTEMA: tente preencher B novamente!\n");
@@ -60,9 +60,14 @@ int main (void){
             break;
 
         case 3:     //PREENCHER A COM ALEATORIOS
+            printf("O intervalo dos aleatórios em A começa em: ");
+            scanf("%d", &inferior);
+            printf("O intervalo dos aleatórios em A termina em: ");
+            scanf("%d", &superior);
+                
             for(j = 0; j < tamcola; j++){
                 for(i = 0; i < tamlina; i++){
-                    matriza[i][j] = random();   //CHAMA FUNCAO RANDOM
+                    matriza[i][j] = random(inferior, superior);   //CHAMA FUNCAO RANDOM
                 }
             }
 
@@ -70,9 +75,14 @@ int main (void){
             break;
 
         case 4:     //PREENCHER B COM ALEATORIOS
+            printf("O intervalo dos aleatórios em A começa em: ");
+            scanf("%d", &inferior);
+            printf("O intervalo dos aleatórios em A termina em: ");
+            scanf("%d", &superior);
+                
             for(i = 0; i < tamlinb; i++){
                 for(j = 0; j < tamcolb; j++){
-                    matrizb[i][j] = random();   //CHAMA FUNCAO RANDOM
+                    matrizb[i][j] = random(inferior, superior);   //CHAMA FUNCAO RANDOM
                 }
             }
 
@@ -126,7 +136,7 @@ int main (void){
                 printf("RESPOSTA DO SISTEMA: matrizes somadas com sucesso.\n");
 
             }else{
-                printf("RESPOSTA DO SISTEMA: imposs�vel realizar a opera��o com matrizes distintas\n");
+                printf("RESPOSTA DO SISTEMA: impossível realizar a operação com matrizes distintas\n");
             }
             break;
 
@@ -139,7 +149,7 @@ int main (void){
                 printf("RESPOSTA DO SISTEMA: matrizes subtraidas com sucesso.\n");
 
             }else{
-                printf("RESPOSTA DO SISTEMA: imposs�vel realizar a opera��o com matrizes distintas\n");
+                printf("RESPOSTA DO SISTEMA: impossível realizar a operação com matrizes distintas\n");
             }
             break;
 
@@ -156,6 +166,7 @@ int main (void){
             break;
 
         case 10:    //IMPRIMIR A
+                //TEM QUE SER POR FUNÇÃO!!!!!!!!
             printf("Matriz A\n");
 
             for(i=0; i<tamlina; i++){
@@ -174,7 +185,7 @@ int main (void){
             printf("Matriz B\n");
 
             for(i=0; i<tamlinb; i++){
-                printf(" %3d    |", i+1);   //ESCREVENDO QUANT DE LINHAS
+                printf(" %3d |", i+1);   //ESCREVENDO QUANT DE LINHAS
 
                     for(j = 0; j < tamcolb; j++){
                         printf("%6.2f", matrizb[i][j]);     //ESCREVENDO A MATRIZ
